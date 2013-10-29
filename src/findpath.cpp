@@ -12,6 +12,9 @@
 #include <iostream>
 #include <stdio.h>
 
+#include <cmath>
+#include <ctime>
+
 #define DEBUG_LISTS 0
 #define DEBUG_LIST_LENGTHS_ONLY 0
 
@@ -72,7 +75,7 @@ int GetMap(int x, int y) {
 /*
  * Description: MapSearchNode describes a potential user state
  */
-class MapSearchNode : public AStarState<MapSearchNode>{
+class MapSearchNode: public AStarState<MapSearchNode> {
 public:
    unsigned int x;	 // the (x,y) positions of the node
    unsigned int y;
@@ -188,6 +191,8 @@ float MapSearchNode::GetCost(MapSearchNode &successor) {
 // Main
 
 int main(int argc, char *argv[]) {
+
+   clock_t t = clock();
 
    cout << "STL A* Search implementation\n(C)2001 Justin Heyes-Jones\n";
 
@@ -308,6 +313,14 @@ int main(int argc, char *argv[]) {
 
       astarsearch.EnsureMemoryFreed();
    }
+
+
+   int x = 0;
+   for (double i = 0; i < 9000000; i += 0.5) {
+      x = sqrt(x) * i;
+   }
+
+   cout << "duration: " << (clock() - t) / (double)CLOCKS_PER_SEC << " seconds" << endl;
 
    return 0;
 }
