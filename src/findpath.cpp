@@ -31,6 +31,29 @@ int map[MAP_WIDTH * MAP_HEIGHT] = {
 
 //    00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19
       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 00
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 01
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 02
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 03
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 04
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 05
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 06
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 07
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 08
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 09
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 10
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 11
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 12
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 13
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 14
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 15
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 16
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 17
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 18
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 19
+
+/*
+//    00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19
+      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 00
       1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 1,   // 01
       1, 9, 9, 1, 1, 9, 9, 9, 1, 9, 1, 9, 1, 9, 1, 9, 9, 9, 1, 1,   // 02
       1, 9, 9, 1, 1, 9, 9, 9, 1, 9, 1, 9, 1, 9, 1, 9, 9, 9, 1, 1,   // 03
@@ -50,7 +73,7 @@ int map[MAP_WIDTH * MAP_HEIGHT] = {
       1, 1, 9, 9, 9, 9, 9, 9, 9, 1, 1, 1, 9, 9, 9, 1, 9, 9, 9, 9,   // 17
       1, 9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 1, 1, 1, 1, 1, 1, 1, 1,   // 18
       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,   // 19
-
+*/
       };
 
 // map helper functions
@@ -124,7 +147,14 @@ float MapSearchNode::GoalDistanceEstimate(MapSearchNode &nodeGoal) {
    float xd = float(((float) x - (float) nodeGoal.x));
    float yd = float(((float) y - (float) nodeGoal.y));
 
-   return xd + yd;
+   //TODO commented out this (looks like this uses manhattan distance without a tie breaker)
+   //return xd + yd;
+
+   //TODO either add tie breaker or use Euclidean distance algorithm
+   //Euclidean distance algorithm:
+   float h = sqrt(xd*xd + yd*yd);
+   cout << "h: " << h << endl;
+   return h;
 
 }
 
@@ -211,16 +241,18 @@ int main(int argc, char *argv[]) {
    const unsigned int NumSearches = 1;
 
    while (SearchCount < NumSearches) {
+      srand(time(NULL));
 
+      //TODO commented out randomized start and goal nodes for user-specified positions
       // Create a start state
-      MapSearchNode nodeStart;
-      nodeStart.x = rand() % MAP_WIDTH;
-      nodeStart.y = rand() % MAP_HEIGHT;
+      MapSearchNode nodeStart(0, 4);
+      //nodeStart.x = rand() % MAP_WIDTH;
+      //nodeStart.y = rand() % MAP_HEIGHT;
 
       // Define the goal state
-      MapSearchNode nodeEnd;
-      nodeEnd.x = rand() % MAP_WIDTH;
-      nodeEnd.y = rand() % MAP_HEIGHT;
+      MapSearchNode nodeEnd(4, 0);
+      //nodeEnd.x = rand() % MAP_WIDTH;
+      //nodeEnd.y = rand() % MAP_HEIGHT;
 
       // Set Start and goal states
 

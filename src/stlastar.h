@@ -137,8 +137,6 @@ public:
       }
    };
 
-   // methods
-
    // constructor just initialises private data
    AStarSearch() :
          m_AllocateNodeCount(0),
@@ -686,7 +684,7 @@ private:
 #else
       Node *address = m_FixedSizeAllocator.alloc();
 
-      if (!address) {
+      if (address == NULL) {
          return NULL;
       }
       m_AllocateNodeCount++;
